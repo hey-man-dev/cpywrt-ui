@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Color Palette */
+  --color-main-bg: #F9F9F7;
+  --color-sidebar-bg: #F0F0EE;
+  --color-surface: #FFFFFF;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #6B7280;
+  --color-text-tertiary: #9CA3AF;
+  --color-border: #E5E7EB;
+  --color-border-subtle: #F3F4F6;
+  
+  /* Accent Colors */
+  --color-accent-action: #D95D40;
+  --color-accent-action-hover: #C24A2C;
+  --color-accent-link: #2563EB;
+  --color-accent-smart: #F97316;
+  --color-accent-purple: #7C3AED;
+  --color-accent-green: #16A34A;
+  --color-accent-yellow: #ca8a04;
+
+  /* Typography & Spacing */
+  --font-family-sans: 'Inter', sans-serif;
+  --font-size-xl: 1.5rem;   /* 24px */
+  --font-size-lg: 1.25rem;  /* 20px */
+  --font-size-md: 1rem;     /* 16px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-xs: 0.75rem;  /* 12px */
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+  --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+  --border-radius-md: 8px;
+  --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-sans);
+  color: var(--color-text-primary);
+  background-color: var(--color-main-bg);
+  overflow: hidden;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Form Elements */
+.cpywrt-input, .cpywrt-textarea, .cpywrt-select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--space-3);
+  font-size: var(--font-size-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-surface);
+  transition: var(--transition-smooth);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.cpywrt-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right .5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+.cpywrt-input:focus, .cpywrt-textarea:focus, .cpywrt-select:focus {
+  outline: none;
+  border-color: var(--color-accent-link);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.cpywrt-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+  color: var(--color-text-secondary);
+}
+
+.cpywrt-button-primary {
+  width: 100%;
+  padding: var(--space-3);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--color-accent-action);
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-6);
+}
+
+.cpywrt-button-primary:hover {
+  background-color: var(--color-accent-action-hover);
+}
+
+/* Action Buttons */
+.cpywrt-action-button {
+  background: transparent;
+  border: none;
+  padding: var(--space-1);
+  cursor: pointer;
+  border-radius: var(--border-radius-md);
+  color: var(--color-text-tertiary);
+  transition: var(--transition-smooth);
+}
+
+.cpywrt-action-button:hover {
+  background-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+/* Loading Animation */
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--color-border);
+  border-bottom-color: var(--color-accent-action);
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+/* Utility Classes */
+.hidden {
+  display: none;
+}
+
+.visible {
+  opacity: 1;
+}

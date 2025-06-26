@@ -1,0 +1,64 @@
+.cpywrt-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background-color: var(--color-sidebar-bg);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--color-border);
+}
+
+.cpywrt-brand {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.cpywrt-sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cpywrt-sidebar-menu-item a {
+  display: flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--border-radius-md);
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  transition: var(--transition-smooth);
+}
+
+.cpywrt-sidebar-menu-item a:hover {
+  background-color: #E5E5E3;
+  color: var(--color-text-primary);
+}
+
+.cpywrt-sidebar-menu-item.active a {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
+.cpywrt-sidebar-menu-item .menu-icon {
+  margin-right: var(--space-4);
+  display: flex;
+  align-items: center;
+}
+
+.cpywrt-sidebar-menu-header {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-tertiary);
+  padding: var(--space-6) var(--space-4) var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.cpywrt-sidebar-footer {
+  margin-top: auto;
+}

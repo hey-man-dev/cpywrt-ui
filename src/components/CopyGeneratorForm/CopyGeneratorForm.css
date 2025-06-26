@@ -1,0 +1,17 @@
+.cpywrt-input-panel {
+  width: 40%;
+  max-width: 550px;
+  min-width: 400px;
+  padding: var(--space-8);
+  overflow-y: auto;
+}
+
+.cpywrt-form-header {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-8);
+}
+
+.cpywrt-form-group {
+  margin-bottom: var(--space-5);
+}

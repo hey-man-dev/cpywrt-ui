@@ -80,7 +80,7 @@ export const useAppState = () => {
       if (panelState === 'input') {
         setPanelState('feedback');
       }
-    }, 2500);
+    }, 5000);
   };
 
   const regenerateWithChanges = (changes: Partial<FormData>) => {
@@ -93,7 +93,7 @@ export const useAppState = () => {
     setTimeout(() => {
       setResults(mockResults); // In real app, this would use the updated form data
       setResultsState('results');
-    }, 2500);
+    }, 5000);
   };
 
   const startFresh = () => {

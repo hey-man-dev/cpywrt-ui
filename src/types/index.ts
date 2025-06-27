@@ -19,6 +19,7 @@ export interface MenuItem {
   icon?: string;
   href?: string;
   active?: boolean;
+  disabled?: boolean;
 }
 
 export interface MenuSection {
@@ -32,4 +33,10 @@ export interface AppState {
   formData: FormData;
   results: CopyResult[];
   resultsState: ResultsState;
+}
+
+export interface DropdownOption {
+  value: string;
+  label: string;
+  description?: string;
 }

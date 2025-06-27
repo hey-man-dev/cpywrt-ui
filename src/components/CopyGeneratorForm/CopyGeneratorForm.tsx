@@ -1,5 +1,6 @@
 import React from 'react';
-import type { FormData } from '../../types';
+import type { FormData, DropdownOption } from '../../types';
+import CustomDropdown from '../common/CustomDropdown';
 import './CopyGeneratorForm.css';
 
 interface CopyGeneratorFormProps {
@@ -7,18 +8,87 @@ interface CopyGeneratorFormProps {
   onFormChange: (field: keyof FormData, value: string) => void;
   onSubmit: () => void;
   isLoading?: boolean;
+  isFormValid?: boolean;
 }
 
 const CopyGeneratorForm: React.FC<CopyGeneratorFormProps> = ({
   formData,
   onFormChange,
   onSubmit,
-  isLoading = false
+  isLoading = false,
+  isFormValid = false
 }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit();
   };
+
+  const outputTypeOptions: DropdownOption[] = [
+    { 
+      value: 'Tagline', 
+      label: 'Tagline',
+      description: 'Short, memorable phrases that capture your brand essence'
+    },
+    { 
+      value: 'Ad Copy', 
+      label: 'Ad Copy',
+      description: 'Compelling text for advertisements and marketing campaigns'
+    }
+  ];
+
+  const industryOptions: DropdownOption[] = [
+    { 
+      value: 'Fintech', 
+      label: 'Fintech',
+      description: 'Financial technology and digital banking solutions'
+    },
+    { 
+      value: 'SaaS', 
+      label: 'SaaS',
+      description: 'Software as a Service and business tools'
+    },
+    { 
+      value: 'E-commerce', 
+      label: 'E-commerce',
+      description: 'Online retail and marketplace platforms'
+    }
+  ];
+
+  const personalityOptions: DropdownOption[] = [
+    { 
+      value: 'Witty & Clever', 
+      label: 'Witty & Clever',
+      description: 'Smart wordplay and humor that engages and entertains'
+    },
+    { 
+      value: 'Bold & Confident', 
+      label: 'Bold & Confident',
+      description: 'Strong, assertive messaging that commands attention'
+    },
+    { 
+      value: 'Professional', 
+      label: 'Professional',
+      description: 'Polished, authoritative tone for business contexts'
+    }
+  ];
+
+  const priceSegmentOptions: DropdownOption[] = [
+    { 
+      value: 'Budget', 
+      label: 'Budget',
+      description: 'Value-focused messaging for cost-conscious consumers'
+    },
+    { 
+      value: 'Mid-range', 
+      label: 'Mid-range',
+      description: 'Balanced approach highlighting quality and value'
+    },
+    { 
+      value: 'Premium', 
+      label: 'Premium',
+      description: 'Luxury positioning emphasizing exclusivity and quality'
+    }
+  ];
 
   return (
     <div className="cpywrt-input-panel">
@@ -53,73 +123,38 @@ const CopyGeneratorForm: React.FC<CopyGeneratorFormProps> = ({
           />
         </div>
 
-        <div className="cpywrt-form-group">
-          <label htmlFor="output-type" className="cpywrt-label">
-            Output Type
-          </label>
-          <select
-            id="output-type"
-            className="cpywrt-select"
-            value={formData.outputType}
-            onChange={(e) => onFormChange('outputType', e.target.value)}
-          >
-            <option value="Tagline">Tagline</option>
-            <option value="Ad Copy">Ad Copy</option>
-          </select>
-        </div>
+        <CustomDropdown
+          label="Output Type"
+          options={outputTypeOptions}
+          value={formData.outputType}
+          onChange={(value) => onFormChange('outputType', value)}
+        />
 
-        <div className="cpywrt-form-group">
-          <label htmlFor="industry" className="cpywrt-label">
-            Industry
-          </label>
-          <select
-            id="industry"
-            className="cpywrt-select"
-            value={formData.industry}
-            onChange={(e) => onFormChange('industry', e.target.value)}
-          >
-            <option value="Fintech">Fintech</option>
-            <option value="SaaS">SaaS</option>
-            <option value="E-commerce">E-commerce</option>
-          </select>
-        </div>
+        <CustomDropdown
+          label="Industry"
+          options={industryOptions}
+          value={formData.industry}
+          onChange={(value) => onFormChange('industry', value)}
+        />
 
-        <div className="cpywrt-form-group">
-          <label htmlFor="personality" className="cpywrt-label">
-            Personality
-          </label>
-          <select
-            id="personality"
-            className="cpywrt-select"
-            value={formData.personality}
-            onChange={(e) => onFormChange('personality', e.target.value)}
-          >
-            <option value="Witty & Clever">Witty & Clever</option>
-            <option value="Bold & Confident">Bold & Confident</option>
-            <option value="Professional">Professional</option>
-          </select>
-        </div>
+        <CustomDropdown
+          label="Personality"
+          options={personalityOptions}
+          value={formData.personality}
+          onChange={(value) => onFormChange('personality', value)}
+        />
 
-        <div className="cpywrt-form-group">
-          <label htmlFor="price-segment" className="cpywrt-label">
-            Price Segment
-          </label>
-          <select
-            id="price-segment"
-            className="cpywrt-select"
-            value={formData.priceSegment}
-            onChange={(e) => onFormChange('priceSegment', e.target.value)}
-          >
-            <option value="Budget">Budget</option>
-            <option value="Mid-range">Mid-range</option>
-            <option value="Premium">Premium</option>
-          </select>
-        </div>
+        <CustomDropdown
+          label="Price Segment"
+          options={priceSegmentOptions}
+          value={formData.priceSegment}
+          onChange={(value) => onFormChange('priceSegment', value)}
+        />
 
         <button
           type="submit"
           className="cpywrt-button-primary"
-          disabled={isLoading}
+          disabled={isLoading || !isFormValid}
         >
           {isLoading ? 'Generating...' : 'Generate Clever Copy'}
         </button>

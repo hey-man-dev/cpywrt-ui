@@ -36,24 +36,31 @@ const ResultItem: React.FC<ResultItemProps> = ({ result }) => {
 
   return (
     <div className="cpywrt-result-item">
-      <div className="cpywrt-result-item-header">
-        <div className="cpywrt-style-tag">
-          {renderIcon(result.icon)}
-          {result.style}
-        </div>
+      <div className="cpywrt-style-tag">
+        {renderIcon(result.icon)}
+        <span className="style-label">{result.style}</span>
+      </div>
+      
+      <div className="cpywrt-copy-container">
+        <p className="cpywrt-main-copy">"{result.copy}"</p>
         <div className="cpywrt-item-actions">
-          <button className="cpywrt-action-button" title="Save" onClick={handleSave}>
-            <Save size={16} />
+          <button className="cpywrt-action-button copy-btn" title="Copy to clipboard" onClick={handleCopy}>
+            <Copy size={18} />
+            <span>Copy</span>
           </button>
-          <button className="cpywrt-action-button" title="Copy" onClick={handleCopy}>
-            <Copy size={16} />
+          <button className="cpywrt-action-button save-btn" title="Save to favorites" onClick={handleSave}>
+            <Save size={18} />
+            <span>Save</span>
           </button>
         </div>
       </div>
-      <p className="cpywrt-main-copy">"{result.copy}"</p>
-      <div className="cpywrt-smart-explanation">
-        <Info size={16} />
-        {result.explanation}
+      
+      <div className="cpywrt-explanation">
+        <div className="explanation-label">
+          <Info size={14} />
+          <span>Why this works</span>
+        </div>
+        <p className="explanation-text">{result.explanation}</p>
       </div>
     </div>
   );

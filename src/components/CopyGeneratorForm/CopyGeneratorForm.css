@@ -2,16 +2,25 @@
   width: 40%;
   max-width: 550px;
   min-width: 400px;
-  padding: var(--space-8);
+  padding: var(--space-10);
   overflow-y: auto;
+  background-color: var(--color-main-bg);
 }
 
 .cpywrt-form-header {
-  font-size: var(--font-size-xl);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-10);
+  color: var(--color-text-primary);
+  line-height: 1.2;
 }
 
 .cpywrt-form-group {
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+/* Remove bottom margin from custom dropdowns since they handle it internally */
+.custom-dropdown-container {
+  margin-bottom: var(--space-6);
 }

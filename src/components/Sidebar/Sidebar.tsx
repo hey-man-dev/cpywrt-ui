@@ -1,14 +1,14 @@
 import React from 'react';
-import { FolderKanban, UserCircle, Settings } from 'lucide-react';
+import { FolderKanban, UserCircle, Settings, PenTool, Mic } from 'lucide-react';
 import type { MenuSection } from '../../types';
 import './Sidebar.css';
 
 const Sidebar: React.FC = () => {
   const mainMenuItems: MenuSection = {
     items: [
-      { label: 'Copy Generator', active: true },
-      { label: 'Brand Voice' },
-      { label: 'Projects', icon: 'folder-kanban' }
+      { label: 'Copy Generator', icon: 'pen-tool', active: true },
+      { label: 'Brand Voice', icon: 'mic', disabled: true },
+      { label: 'Projects', icon: 'folder-kanban', disabled: true }
     ]
   };
 
@@ -29,6 +29,10 @@ const Sidebar: React.FC = () => {
 
   const renderIcon = (iconName?: string) => {
     switch (iconName) {
+      case 'pen-tool':
+        return <PenTool size={16} />;
+      case 'mic':
+        return <Mic size={16} />;
       case 'folder-kanban':
         return <FolderKanban size={16} />;
       case 'user-circle':
@@ -43,8 +47,8 @@ const Sidebar: React.FC = () => {
   const renderMenuSection = (section: MenuSection, className = '') => (
     <ul className={`cpywrt-sidebar-menu ${className}`}>
       {section.items.map((item, index) => (
-        <li key={index} className={`cpywrt-sidebar-menu-item ${item.active ? 'active' : ''}`}>
-          <a href={item.href || '#'}>
+        <li key={index} className={`cpywrt-sidebar-menu-item ${item.active ? 'active' : ''} ${item.disabled ? 'disabled' : ''}`}>
+          <a href={item.disabled ? undefined : (item.href || '#')} onClick={item.disabled ? (e) => e.preventDefault() : undefined}>
             {item.icon && (
               <i className="menu-icon">
                 {renderIcon(item.icon)}

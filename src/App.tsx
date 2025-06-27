@@ -11,7 +11,8 @@ function App() {
     results,
     resultsState,
     updateFormField,
-    generateCopy
+    generateCopy,
+    isFormValid
   } = useAppState();
 
   return (
@@ -23,6 +24,7 @@ function App() {
           onFormChange={updateFormField}
           onSubmit={generateCopy}
           isLoading={resultsState === 'loading'}
+          isFormValid={isFormValid()}
         />
         <ResultsPanel
           state={resultsState}

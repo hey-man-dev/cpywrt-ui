@@ -4,10 +4,10 @@ import type { FormData, CopyResult, ResultsState } from '../types';
 const initialFormData: FormData = {
   productName: '',
   productDescription: '',
-  outputType: 'Tagline',
-  industry: 'Fintech',
-  personality: 'Witty & Clever',
-  priceSegment: 'Budget'
+  outputType: '',
+  industry: '',
+  personality: '',
+  priceSegment: ''
 };
 
 const mockResults: CopyResult[] = [
@@ -49,8 +49,17 @@ export const useAppState = () => {
     }));
   };
 
+  const isFormValid = () => {
+    return formData.productName.trim() !== '' &&
+           formData.productDescription.trim() !== '' &&
+           formData.outputType !== '' &&
+           formData.industry !== '' &&
+           formData.personality !== '' &&
+           formData.priceSegment !== '';
+  };
+
   const generateCopy = () => {
-    if (!formData.productName.trim() || !formData.productDescription.trim()) {
+    if (!isFormValid()) {
       return;
     }
 
@@ -74,6 +83,7 @@ export const useAppState = () => {
     resultsState,
     updateFormField,
     generateCopy,
-    resetResults
+    resetResults,
+    isFormValid
   };
 };

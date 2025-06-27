@@ -22,7 +22,7 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({ state, results }) => {
       </div>
       <h3>Your Brilliant Copy Is Just a Form Away</h3>
       <p>Fill in the details and watch us turn your product into poetry.<br />
-      Well, maybe not poetry, but definitely something people will actually read.</p>
+      (Well, maybe not poetry, but definitely something people will actually read.)</p>
     </div>
   );
 

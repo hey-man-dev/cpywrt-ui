@@ -1,69 +1,117 @@
-# React + TypeScript + Vite
+# cpywrt - AI Copy Generation Tool
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An intelligent copy generation application built with React and TypeScript that helps create compelling marketing copy for products and services.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+cpywrt is a modern web application that streamlines the copywriting process through AI-powered generation with intelligent feedback loops. Users can input product details and receive professionally crafted copy in various styles, with the ability to refine and iterate through an intuitive feedback system.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ✨ Core Functionality
+- **Intelligent Copy Generation**: Creates compelling copy based on product details, personality, and target audience
+- **Multiple Copy Styles**: Professional, Creative, Conversational, and Direct writing styles
+- **Personality Options**: Witty & Clever, Bold & Confident, Playful & Fun, Professional & Trustworthy, Warm & Friendly, Edgy & Provocative
+- **Industry-Specific**: Tailored for Fintech, SaaS, E-commerce, Food, Fashion, Healthcare, Education
+- **Price Segment Targeting**: Budget, Mid-range, Premium, Luxury positioning
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🔄 Advanced Feedback Loop
+- **Post-Generation Refinement**: Seamless transition from generation to feedback system
+- **Personality Switching**: Quick personality changes without re-entering product details
+- **Energy Boosting**: Make copy shorter, more energetic, or action-focused
+- **Message Refocusing**: Clarify and adjust core messaging
+- **Multi-Selection Interface**: Clean, checkbox-free selection system
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 🎨 Enhanced User Experience
+- **Claude Design System**: Professional interface with consistent color palette and typography
+- **Card-Based Results**: Modern card layout with 3D hover effects
+- **Enhanced Loading States**: Witty copy with animated sparkles and lyric-style text transitions
+- **Proper Form Validation**: All fields required with real-time validation
+- **Custom Dropdowns**: Descriptions panel with empty state placeholders
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Technology Stack
+
+- **React 18** with TypeScript for type-safe development
+- **Vite** for fast development and optimized builds
+- **CSS Custom Properties** implementing Claude design tokens
+- **Lucide React** for consistent iconography
+- **Modern ESLint/TypeScript** configuration for code quality
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The application will be available at `http://localhost:5173` (or the next available port).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project Structure
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+src/
+├── components/
+│   ├── Layout/              # Main application layout
+│   ├── Sidebar/             # Navigation with icons
+│   ├── CopyGeneratorForm/   # Input form with validation
+│   ├── FeedbackPanel/       # Post-generation refinement
+│   ├── ResultsPanel/        # Copy results display
+│   └── common/              # Shared dropdown components
+├── hooks/
+│   └── useAppState.ts       # Centralized state management
+├── types/
+│   └── index.ts             # TypeScript interfaces
+└── App.tsx                  # Main application component
+```
+
+## Key Components
+
+### State Management
+- **useAppState Hook**: Manages form data, results, UI state, and feedback flow
+- **Form Validation**: Comprehensive validation with disabled states
+- **Panel State Management**: Smooth transitions between input and feedback modes
+
+### Design System
+- **Claude Color Palette**: Ivory, cloud, slate, and UI accent colors
+- **Typography**: DM Sans headings, Inter body text, Fira Code monospace
+- **Component Architecture**: Scoped CSS with BEM-like naming conventions
+
+## Development Guidelines
+
+### Code Style
+- **TypeScript Strict Mode**: Enabled with verbatimModuleSyntax
+- **Component Pattern**: Functional components with hooks
+- **CSS Organization**: Component-scoped styles with global design tokens
+- **Import Strategy**: Type-only imports for interfaces
+
+### Form Handling
+- **Required Fields**: All inputs mandatory for generation
+- **Empty Defaults**: No pre-selected values to encourage user input
+- **Real-time Validation**: Immediate feedback on form completion
+- **Non-resizable Elements**: Consistent form layout
+
+## Contributing
+
+1. Follow the existing code style and component patterns
+2. Use TypeScript interfaces for all data structures
+3. Implement proper error handling and loading states
+4. Test all form validation scenarios
+5. Ensure responsive design compatibility
+
+## License
+
+This project is part of the cpywrt suite of copywriting tools.

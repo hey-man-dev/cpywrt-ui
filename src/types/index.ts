@@ -12,6 +12,8 @@ export interface FormData {
   industry: string;
   personality: string;
   priceSegment: string;
+  _refinementType?: string;
+  _punchierOptions?: string[];
 }
 
 export interface MenuItem {
@@ -28,6 +30,7 @@ export interface MenuSection {
 }
 
 export type ResultsState = 'empty' | 'loading' | 'results';
+export type PanelState = 'input' | 'feedback';
 
 export interface AppState {
   formData: FormData;

@@ -28,8 +28,21 @@ const ResultsPanel: React.FC<ResultsPanelProps> = ({ state, results }) => {
 
   const renderLoadingState = () => (
     <div className="results-panel-state">
-      <div className="loader"></div>
-      <p>Crafting your clever copy...</p>
+      <div className="loading-animation">
+        <div className="loading-sparkles">
+          <PenTool className="sparkle sparkle-1" size={24} />
+          <Lightbulb className="sparkle sparkle-2" size={20} />
+          <Zap className="sparkle sparkle-3" size={22} />
+          <Sparkles className="sparkle sparkle-4" size={18} />
+        </div>
+      </div>
+      <div className="loading-messages">
+        <h3>When you have to sound clever (even when you're not)</h3>
+        <div className="loading-subtitle-container">
+          <p className="loading-subtitle loading-subtitle-1">Training AI to make your product sound less boring than it actually is...</p>
+          <p className="loading-subtitle loading-subtitle-2">Applying advanced wordplay algorithms and a dash of audacity.</p>
+        </div>
+      </div>
     </div>
   );
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { FormData, CopyResult, ResultsState } from '../types';
+import type { FormData, CopyResult, ResultsState, PanelState } from '../types';
 
 const initialFormData: FormData = {
   productName: '',
@@ -39,8 +39,10 @@ const mockResults: CopyResult[] = [
 
 export const useAppState = () => {
   const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [originalFormData, setOriginalFormData] = useState<FormData>(initialFormData);
   const [results, setResults] = useState<CopyResult[]>([]);
   const [resultsState, setResultsState] = useState<ResultsState>('empty');
+  const [panelState, setPanelState] = useState<PanelState>('input');
 
   const updateFormField = (field: keyof FormData, value: string) => {
     setFormData(prev => ({
@@ -66,23 +68,58 @@ export const useAppState = () => {
     setResultsState('loading');
     setResults([]);
 
+    // Store original form data for feedback system
+    if (panelState === 'input') {
+      setOriginalFormData(formData);
+    }
+
     setTimeout(() => {
       setResults(mockResults);
       setResultsState('results');
+      // Switch to feedback panel after first generation
+      if (panelState === 'input') {
+        setPanelState('feedback');
+      }
     }, 2500);
+  };
+
+  const regenerateWithChanges = (changes: Partial<FormData>) => {
+    const updatedFormData = { ...formData, ...changes };
+    setFormData(updatedFormData);
+    
+    setResultsState('loading');
+    setResults([]);
+
+    setTimeout(() => {
+      setResults(mockResults); // In real app, this would use the updated form data
+      setResultsState('results');
+    }, 2500);
+  };
+
+  const startFresh = () => {
+    setFormData(initialFormData);
+    setOriginalFormData(initialFormData);
+    setResults([]);
+    setResultsState('empty');
+    setPanelState('input');
   };
 
   const resetResults = () => {
     setResults([]);
     setResultsState('empty');
+    setPanelState('input');
   };
 
   return {
     formData,
+    originalFormData,
     results,
     resultsState,
+    panelState,
     updateFormField,
     generateCopy,
+    regenerateWithChanges,
+    startFresh,
     resetResults,
     isFormValid
   };

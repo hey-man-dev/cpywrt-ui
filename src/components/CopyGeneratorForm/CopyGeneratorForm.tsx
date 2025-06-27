@@ -51,6 +51,26 @@ const CopyGeneratorForm: React.FC<CopyGeneratorFormProps> = ({
       value: 'E-commerce', 
       label: 'E-commerce',
       description: 'Online retail and marketplace platforms'
+    },
+    { 
+      value: 'Food', 
+      label: 'Food',
+      description: 'Restaurants, food delivery, and culinary services'
+    },
+    { 
+      value: 'Fashion', 
+      label: 'Fashion',
+      description: 'Clothing, accessories, and lifestyle brands'
+    },
+    { 
+      value: 'Healthcare', 
+      label: 'Healthcare',
+      description: 'Medical services, wellness, and health tech'
+    },
+    { 
+      value: 'Education', 
+      label: 'Education',
+      description: 'Learning platforms, courses, and educational tools'
     }
   ];
 
@@ -66,9 +86,24 @@ const CopyGeneratorForm: React.FC<CopyGeneratorFormProps> = ({
       description: 'Strong, assertive messaging that commands attention'
     },
     { 
-      value: 'Professional', 
-      label: 'Professional',
-      description: 'Polished, authoritative tone for business contexts'
+      value: 'Playful & Fun', 
+      label: 'Playful & Fun',
+      description: 'Light-hearted, energetic tone that creates joy'
+    },
+    { 
+      value: 'Professional & Trustworthy', 
+      label: 'Professional & Trustworthy',
+      description: 'Polished, reliable messaging that builds confidence'
+    },
+    { 
+      value: 'Warm & Friendly', 
+      label: 'Warm & Friendly',
+      description: 'Approachable, personal tone that feels welcoming'
+    },
+    { 
+      value: 'Edgy & Provocative', 
+      label: 'Edgy & Provocative',
+      description: 'Bold, unconventional messaging that challenges norms'
     }
   ];
 
@@ -86,13 +121,18 @@ const CopyGeneratorForm: React.FC<CopyGeneratorFormProps> = ({
     { 
       value: 'Premium', 
       label: 'Premium',
-      description: 'Luxury positioning emphasizing exclusivity and quality'
+      description: 'High-end positioning with quality and sophistication'
+    },
+    { 
+      value: 'Luxury', 
+      label: 'Luxury',
+      description: 'Ultra-premium messaging emphasizing exclusivity and prestige'
     }
   ];
 
   return (
     <div className="cpywrt-input-panel">
-      <h1 className="cpywrt-form-header">Copy Generator</h1>
+      <h1 className="cpywrt-form-header">Generate Clever Copy</h1>
       
       <form onSubmit={handleSubmit}>
         <div className="cpywrt-form-group">

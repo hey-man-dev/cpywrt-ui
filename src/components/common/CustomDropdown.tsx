@@ -88,14 +88,18 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
               ))}
             </div>
             
-            {hoveredOptionData?.description && (
-              <div className="custom-dropdown-description">
+            <div className={`custom-dropdown-description ${!hoveredOptionData?.description ? 'empty' : ''}`}>
+              {hoveredOptionData?.description ? (
                 <div className="description-content">
                   <h4>{hoveredOptionData.label}</h4>
                   <p>{hoveredOptionData.description}</p>
                 </div>
-              </div>
-            )}
+              ) : (
+                <div className="empty-description-text">
+                  Hover over an option to see its description
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>

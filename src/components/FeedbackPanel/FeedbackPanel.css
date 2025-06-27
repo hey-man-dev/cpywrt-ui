@@ -152,9 +152,10 @@
 }
 
 .checklist-item.selected {
-  background: var(--color-ui-orange);
-  border-color: var(--color-ui-orange);
-  color: white;
+  background: var(--color-ivory-medium);
+  border: 2px solid var(--color-ui-orange);
+  color: var(--color-text-primary);
+  font-weight: 600;
 }
 
 
@@ -206,6 +207,12 @@
   resize: vertical;
   min-height: 100px;
   transition: var(--transition-fast);
+}
+
+.feedback-panel .cpywrt-textarea::placeholder {
+  color: var(--color-text-tertiary);
+  opacity: 0.6;
+  font-style: italic;
 }
 
 .feedback-panel .cpywrt-textarea:focus {

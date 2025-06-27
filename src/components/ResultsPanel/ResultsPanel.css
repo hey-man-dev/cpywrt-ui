@@ -395,8 +395,8 @@
 }
 
 .cpywrt-action-button.save-btn:hover {
-  background: var(--color-book-cloth);
-  border-color: var(--color-book-cloth);
+  background: #059669;
+  border-color: #059669;
   color: white;
 }
 

@@ -19,7 +19,7 @@ const FeedbackPanel: React.FC<FeedbackPanelProps> = ({
 }) => {
   const [mode, setMode] = useState<FeedbackMode>('menu');
   const [newPersonality, setNewPersonality] = useState(originalFormData.personality);
-  const [newFocus, setNewFocus] = useState(originalFormData.productDescription);
+  const [newFocus, setNewFocus] = useState('');
   const [punchierOptions, setPunchierOptions] = useState({
     shorter: false,
     energetic: false,
@@ -225,7 +225,7 @@ const FeedbackPanel: React.FC<FeedbackPanelProps> = ({
           rows={4}
           value={newFocus}
           onChange={(e) => setNewFocus(e.target.value)}
-          placeholder="Describe the key message you want to emphasize..."
+          placeholder={originalFormData.productDescription}
         />
       </div>
 
